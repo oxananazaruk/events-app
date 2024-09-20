@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "title": "Music edition",
+    "description": "Live music in the roof",
+    "eventDate": "10.10.2024",
+    "organizer": "FlyStar"
+  },
+  {
+    "id": "2",
+    "title": "Dance",
+    "description": "Dancing in the roof",
+    "eventDate": "11.10.2024",
+    "organizer": "FlyStar"
+  },
+  {
+    "id": "3",
+    "title": "Sing",
+    "description": "Singing in the roof",
+    "eventDate": "12.10.2024",
+    "organizer": "RedWine"
+  },
+  {
+    "id": "4",
+    "title": "Moovie Ection",
+    "description": "Moovie in the roof",
+    "eventDate": "13.10.2024",
+    "organizer": "Chily"
+  },
+  {
+    "id": "5",
+    "title": "Art Ection",
+    "description": "Art your dreams",
+    "eventDate": "14.10.2024",
+    "organizer": "ArtSchool"
+  },
+  {
+    "id": "6",
+    "title": "Music edition",
+    "description": "Live music in the roof",
+    "eventDate": "20.10.2024",
+    "organizer": "FlyStar"
+  },
+  {
+    "id": "7",
+    "title": "Dance",
+    "description": "Dancing in the roof",
+    "eventDate": "21.10.2024",
+    "organizer": "FlyStar"
+  },
+  {
+    "id": "8",
+    "title": "Sing",
+    "description": "Singing in the roof",
+    "eventDate": "22.10.2024",
+    "organizer": "RedWine"
+  },
+  {
+    "id": "9",
+    "title": "Moovie Ection",
+    "description": "Moovie in the roof",
+    "eventDate": "23.10.2024",
+    "organizer": "Chily"
+  },
+  {
+    "id": "10",
+    "title": "Art Ection",
+    "description": "Art your dreams",
+    "eventDate": "24.10.2024",
+    "organizer": "ArtSchool"
+  }
+]
