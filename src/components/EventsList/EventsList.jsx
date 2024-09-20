@@ -1,6 +1,6 @@
 import events from "../../events.json";
 import { EventCard } from "../EventCard/EventCard";
-import { ListEvents, ListItem } from "./EventsLisr.styled";
+import { ListEvents, ListItem } from "./EventsList.styled";
 
 export const EventsList = () => {
   return (

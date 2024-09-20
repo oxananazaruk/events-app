@@ -37,8 +37,6 @@ export const HeaderTitle = styled.h2`
 export const Navigation = styled.nav`
   display: flex;
   gap: 30px;
-  /* justify-content: center;
-  align-items: center; */
 `;
 
 export const StyledLink = styled(NavLink)`

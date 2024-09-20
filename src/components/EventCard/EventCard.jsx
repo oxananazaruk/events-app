@@ -1,17 +1,27 @@
-import { NavLink } from "react-router-dom";
-import { EventWrapper } from "./eventCard.styled";
+import {
+  EventLinks,
+  EventOrg,
+  EventText,
+  EventWrapper,
+  LinkEvent,
+  TitleName,
+} from "./EventCard.styled";
 
 export const EventCard = ({ event }) => {
   const { title, eventDate, description, organizer } = event;
 
   return (
     <EventWrapper>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <p>{eventDate}</p>
-      <p>{organizer}</p>
-      <NavLink to="/registration">Register</NavLink>
-      <NavLink to="/participants">View</NavLink>
+      <div>
+        <TitleName>{title}</TitleName>
+        <EventText>{description}</EventText>
+        <EventText>{eventDate}</EventText>
+        <EventOrg>{organizer}</EventOrg>
+      </div>
+      <EventLinks>
+        <LinkEvent to="/registration">Register</LinkEvent>
+        <LinkEvent to="/participants">View</LinkEvent>
+      </EventLinks>
     </EventWrapper>
   );
 };
