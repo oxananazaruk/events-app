@@ -2,14 +2,19 @@ import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import {
   Error,
+  FormInfo,
   FormTitle,
   InpWrapp,
   InputsWrapp,
+  RadioTitle,
+  RadioWrapp,
   StyledButton,
   StyledForm,
   StyledInput,
+  StyledRadio,
 } from "./RegisterForm.styled";
 import { DatePick } from "./DatePick";
+import { useLocation } from "react-router-dom";
 
 const schema = Yup.object().shape({
   fullName: Yup.string().min(3, "Too short").required("Required"),
@@ -21,6 +26,9 @@ const schema = Yup.object().shape({
 });
 
 export const RegisterForm = () => {
+  const location = useLocation();
+  const { event } = location.state || {};
+
   const initialValues = {
     fullName: "",
     email: "",
@@ -42,6 +50,10 @@ export const RegisterForm = () => {
     >
       <StyledForm autoComplete="off">
         <FormTitle>Event registration</FormTitle>
+        <FormInfo>
+          <h3>{event ? event.title : "Event not found"}</h3>
+          <p>Date: {event ? event.eventDate : "N/A"}</p>
+        </FormInfo>
 
         <InputsWrapp>
           <InpWrapp>
@@ -57,22 +69,22 @@ export const RegisterForm = () => {
           <InpWrapp>
             <DatePick name="dateOfBirth" />
           </InpWrapp>
-
-          <div role="group" aria-labelledby="source">
-            <label>
+          <RadioTitle>Where did you hear about this event?</RadioTitle>
+          <RadioWrapp role="group" aria-labelledby="source">
+            <StyledRadio>
               <Field type="radio" name="source" value="social media" />
               Social media
-            </label>
-            <label>
+            </StyledRadio>
+            <StyledRadio>
               <Field type="radio" name="source" value="friends" />
               Friends
-            </label>
-            <label>
+            </StyledRadio>
+            <StyledRadio>
               <Field type="radio" name="source" value="found myself" />
               Found myself
-            </label>
+            </StyledRadio>
             <Error name="source" component="p" />
-          </div>
+          </RadioWrapp>
         </InputsWrapp>
 
         <StyledButton type="submit">Register</StyledButton>

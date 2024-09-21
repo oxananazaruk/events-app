@@ -8,7 +8,7 @@ import {
 } from "./EventCard.styled";
 
 export const EventCard = ({ event }) => {
-  const { title, eventDate, description, organizer } = event;
+  const { title, eventDate, description, organizer, id } = event;
 
   return (
     <EventWrapper>
@@ -19,8 +19,13 @@ export const EventCard = ({ event }) => {
         <EventOrg>{organizer}</EventOrg>
       </div>
       <EventLinks>
-        <LinkEvent to="/registration">Register</LinkEvent>
-        <LinkEvent to="/participants">View</LinkEvent>
+        <LinkEvent to={`/registration`} state={{ event }}>
+          Register
+        </LinkEvent>
+
+        <LinkEvent to={`/participants`} state={{ event }}>
+          View
+        </LinkEvent>
       </EventLinks>
     </EventWrapper>
   );

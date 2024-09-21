@@ -1,8 +1,11 @@
 import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
+import { Container } from "./RegistrationPage.styled";
 
 const RegistrationPage = () => {
   return (
-    <RegisterForm/>
+    <Container>
+      <RegisterForm />
+    </Container>
   );
 };
 

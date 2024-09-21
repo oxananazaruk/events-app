@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const EventWrapper = styled.div`
   border: ${(p) => p.theme.border.grey};
@@ -14,7 +14,7 @@ export const EventWrapper = styled.div`
 `;
 
 export const TitleName = styled.h2`
- font-weight: 600;
+  font-weight: 600;
   font-size: 24px;
   line-height: 1.25;
 `;
@@ -42,13 +42,13 @@ export const EventOrg = styled.p`
 `;
 
 export const EventLinks = styled.div`
-display: flex;
-justify-content: space-between;
-margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
 `;
 
-export const LinkEvent = styled(NavLink)`
-  color:  ${(p) => p.theme.color.buttons};
+export const LinkEvent = styled(Link)`
+  color: ${(p) => p.theme.color.buttons};
   font-weight: 600;
   font-size: 20px;
   line-height: 1.25;
