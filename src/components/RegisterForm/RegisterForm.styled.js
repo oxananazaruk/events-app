@@ -7,11 +7,19 @@ export const StyledForm = styled(Form)`
   border-radius: 10px;
   padding: 24px;
   width: 648px;
-  min-height: 532px;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+`;
+
+export const FormWrapper = styled.div`
+  min-width: 648px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const FormTitle = styled.h3`
@@ -61,10 +69,6 @@ export const StyledRadio = styled.label`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  /* border-radius: 10px;
-  border: none;
-  background-color: ${(p) => p.theme.color.inputs};
-  color: rgba(16, 24, 40, 0.6); */
 `;
 
 export const Error = styled(ErrorMessage)`
@@ -138,4 +142,12 @@ export const IconCalendar = styled.svg`
   right: 18px;
   transform: translateY(-50%);
   cursor: pointer;
+`;
+
+export const RegTitle = styled.p`
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.25;
+  margin-top: 20px;
+  text-align: center;
 `;

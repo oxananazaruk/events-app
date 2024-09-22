@@ -1,41 +1,25 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3000/api";
+axios.defaults.baseURL = "https://events-be-v7ja.onrender.com/api";
 
-export const fetchAllEvents = async () => {
-  try {
-    const response = await axios.get(`events/`);
-    return response.data;
-  } catch (error) {
-    console.error(error.message);
-  }
+export const fetchAllEvents = async (page, limit = 9) => {
+  const response = await axios.get(`events/`, {
+    params: {
+      page: page,
+      limit: limit,
+    },
+  });
+  return response.data;
 };
 
 export const fetchParticipants = async (eventId) => {
-  try {
-    const response = await axios.get(`participants/${eventId}`);
-    console.log("response.data", response.data);
+  const response = await axios.get(`participants/${eventId}`);
 
-    return response.data;
-  } catch (error) {
-    console.error(error.message);
-  }
+  return response.data;
 };
 
 export const addParticipantToEvent = async (eventId, participantData) => {
-  try {
-    const response = await axios.post(
-      `participants/${eventId}`,
-      participantData
-    );
+  const response = await axios.post(`participants/${eventId}`, participantData);
 
-    console.log("Participant added:", response.data);
-
-    return response.data;
-  } catch (error) {
-    console.error(
-      "Error adding participant:",
-      error.response ? error.response.data : error.message
-    );
-  }
+  return response.data;
 };

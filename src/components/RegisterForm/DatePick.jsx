@@ -1,4 +1,4 @@
-import sprite from "../../../public/sprite.svg";
+import sprite from "/sprite.svg";
 import {
   StyledDatePicker,
   ErrorDate,
