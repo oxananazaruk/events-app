@@ -5,3 +5,8 @@ export const Container = styled.div`
   padding: 0 20px;
   margin: 0 auto;
 `;
+
+export const SortWrapper = styled.div`
+  margin-top: 50px;
+  text-align: center;
+`;

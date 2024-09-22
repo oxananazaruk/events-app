@@ -13,6 +13,8 @@ const ParticipantsPage = () => {
   const [participants, setParticipants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // Додаємо стан для пошуку
+  const [filteredParticipants, setFilteredParticipants] = useState([]);
 
   useEffect(() => {
     async function getParticipants() {
@@ -33,11 +35,39 @@ const ParticipantsPage = () => {
     getParticipants();
   }, [event._id]);
 
+  useEffect(() => {
+    const filtered = participants.filter((participant) => {
+      const fullName = `${participant.fullName}`.toLowerCase();
+      return (
+        fullName.includes(searchQuery.toLowerCase()) ||
+        participant.email.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    });
+
+    setFilteredParticipants(filtered);
+  }, [searchQuery, participants]);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <Container>
+      <input
+        type="text"
+        placeholder="Search by full name or email"
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
+
       {isLoading && <Loader />}
       {error && <Error />}
-      <ParticipantsList event={event} participants={participants} />
+      {filteredParticipants.length > 0 ? (
+        <ParticipantsList event={event} participants={filteredParticipants} />
+      ) : (
+        <p>No participants found.</p>
+      )}
+      {/* <ParticipantsList participants={participants} /> */}
     </Container>
   );
 };

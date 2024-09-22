@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { EventsList } from "../../components/EventsList/EventsList";
-import { Container } from "./EventsPage.styled";
+import { Container, SortWrapper } from "./EventsPage.styled";
 import { fetchAllEvents } from "../../services/api";
 import { Loader } from "../../components/Loader/Loader";
 import { Error } from "../../components/Error/Error";
@@ -11,6 +11,7 @@ const EventsPage = () => {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [sortBy, setSortBy] = useState("");
 
   useEffect(() => {
     async function getEvents() {
@@ -62,11 +63,42 @@ const EventsPage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isLoading, hasMore]);
 
+  const sortEvents = (events, sortBy) => {
+    switch (sortBy) {
+      case "title":
+        return events.sort((a, b) => a.title.localeCompare(b.title));
+      case "eventDate":
+        return events.sort(
+          (a, b) => new Date(a.eventDate) - new Date(b.eventDate)
+        );
+      case "organizer":
+        return events.sort((a, b) => a.organizer.localeCompare(b.organizer));
+      default:
+        return events;
+    }
+  };
+
+  const handleSortChange = (e) => {
+    setSortBy(e.target.value);
+  };
+
+  const sortedEvents = sortEvents([...eventsItems], sortBy);
+
   return (
     <Container>
+      <SortWrapper>
+        <label htmlFor="sort">Sort by: </label>
+        <select id="sort" value={sortBy} onChange={handleSortChange}>
+          <option value="">None</option>
+          <option value="title">Title</option>
+          <option value="eventDate">Event Date</option>
+          <option value="organizer">Organizer</option>
+        </select>
+      </SortWrapper>
+
       {isLoading && <Loader />}
       {error && <Error />}
-      {eventsItems.length > 0 && <EventsList events={eventsItems} />}
+      {sortedEvents.length > 0 && <EventsList events={sortedEvents} />}
       {!hasMore && <p>No more events to load</p>}
     </Container>
   );
