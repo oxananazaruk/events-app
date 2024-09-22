@@ -1,17 +1,14 @@
-import { useLocation } from "react-router-dom";
 import { ParticipantsCard } from "../ParticipantsCard/ParticipantsCard";
 import { ListItem, ListPart, PartTitle } from "./ParticipantsList.styled";
 
-export const ParticipantsList = () => {
-  const location = useLocation();
-  const { event } = location.state || {};
+export const ParticipantsList = ({ event, participants }) => {
   return (
     <>
-      <PartTitle>"{event.title}" event participants</PartTitle>
-      {event.participants.length > 0 ? (
+      <PartTitle>{event.title} event participants</PartTitle>
+      {participants.length > 0 ? (
         <ListPart>
-          {event.participants.map((participant) => (
-            <ListItem key={participant.name}>
+          {participants.map((participant) => (
+            <ListItem key={participant._id}>
               <ParticipantsCard participant={participant} />
             </ListItem>
           ))}

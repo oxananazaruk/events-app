@@ -1,4 +1,4 @@
-import { PartWrapper } from "./ParticipantsCard.stylel";
+import { PartWrapper } from "./ParticipantsCard.styled";
 
 export const ParticipantsCard = ({ participant }) => {
   return (

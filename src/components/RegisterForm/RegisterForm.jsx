@@ -14,7 +14,7 @@ import {
   StyledRadio,
 } from "./RegisterForm.styled";
 import { DatePick } from "./DatePick";
-import { useLocation } from "react-router-dom";
+import { addParticipantToEvent } from "../../services/api";
 
 const schema = Yup.object().shape({
   fullName: Yup.string().min(3, "Too short").required("Required"),
@@ -25,15 +25,25 @@ const schema = Yup.object().shape({
     .required("Required"),
 });
 
-export const RegisterForm = () => {
-  const location = useLocation();
-  const { event } = location.state || {};
-
+export const RegisterForm = ({ event }) => {
   const initialValues = {
     fullName: "",
     email: "",
     dateOfBirth: null,
     source: "",
+  };
+
+  const handleSubmit = async (eventId, values) => {
+    try {
+      const response = await addParticipantToEvent(eventId, values);
+
+      console.log("Participant added:", response.data);
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+    }
   };
   return (
     <Formik
@@ -44,7 +54,7 @@ export const RegisterForm = () => {
           "en-GB"
         );
         const updatedValues = { ...values, dateOfBirth: formattedDate };
-        // handleSubmit(updatedValues);
+        handleSubmit(event._id, updatedValues);
         console.log("updatedValues", updatedValues);
       }}
     >

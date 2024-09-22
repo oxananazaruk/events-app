@@ -8,7 +8,7 @@ import {
 } from "./EventCard.styled";
 
 export const EventCard = ({ event }) => {
-  const { title, eventDate, description, organizer, id } = event;
+  const { title, eventDate, description, organizer } = event;
 
   return (
     <EventWrapper>

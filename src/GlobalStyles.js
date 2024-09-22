@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import 'modern-normalize';
-import { theme } from './vars.js';
+import { createGlobalStyle } from "styled-components";
+import "modern-normalize";
+import { theme } from "./vars.js";
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -64,18 +64,6 @@ export const GlobalStyle = createGlobalStyle`
     h6,
     p {
         margin: 0;
-    }
-
-    ul,
-    ol {
-        margin: 0;
-        padding: 0;
-    }
-
-    img {
-        display: block;
-        max-width: 100%;
-        height: auto;
     }
 
     button {

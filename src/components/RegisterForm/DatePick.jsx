@@ -1,8 +1,8 @@
-// import sprite from "../../../../public/sprite.svg";
+import sprite from "../../../public/sprite.svg";
 import {
-  // IconCalendar,
   StyledDatePicker,
   ErrorDate,
+  IconCalendar,
 } from "./RegisterForm.styled";
 import "react-datepicker/dist/react-datepicker.css";
 import enGB from "date-fns/locale/en-GB";
@@ -30,9 +30,9 @@ export const DatePick = ({ ...props }) => {
       />
       {meta.touched && meta.error ? <ErrorDate>{meta.error}</ErrorDate> : null}
 
-      {/* <IconCalendar>
+      <IconCalendar>
         <use href={`${sprite}#calendar`} />
-      </IconCalendar> */}
+      </IconCalendar>
     </>
   );
 };

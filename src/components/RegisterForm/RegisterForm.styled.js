@@ -129,3 +129,13 @@ export const StyledDatePicker = styled(DatePicker)`
   color: rgba(16, 24, 40, 0.6);
   position: relative;
 `;
+
+export const IconCalendar = styled.svg`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
