@@ -1,9 +1,11 @@
 # Events planner
 
+Web-based application for events registration.
+
 Level middle
 
 - [@frontend code link](https://github.com/oxananazaruk/events-app) in GitHub
-- [@frontend link](https://oxananazaruk.github.io/event-planner/)
+- [@frontend link](https://oxananazaruk.github.io/events-app/)
 
 - [@backend code link](https://github.com/oxananazaruk/events-be) in GitHub
 - [@backend deploy link](https://events-be-v7ja.onrender.com) in render.com
