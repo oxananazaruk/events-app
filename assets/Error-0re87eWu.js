@@ -1,4 +1,4 @@
-import{d as t,j as r}from"./index-BeQXFneV.js";const n=t.b`
+import{d as t,j as r}from"./index-Vz90z9_1.js";const n=t.b`
   color: ${o=>o.theme.color.buttons};
   font-size: 24px;
   font-weight: 500;
