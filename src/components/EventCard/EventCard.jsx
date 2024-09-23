@@ -1,32 +1,58 @@
-import {
-  EventLinks,
-  EventOrg,
-  EventText,
-  EventWrapper,
-  LinkEvent,
-  TitleName,
-} from "./EventCard.styled.js";
+// import {
+//   EventLinks,
+//   EventOrg,
+//   EventText,
+//   EventWrapper,
+//   LinkEvent,
+//   TitleName,
+// } from "./EventCard.styled.js";
+
+import { Link } from "react-router-dom";
 
 export const EventCard = ({ event }) => {
   const { title, eventDate, description, organizer } = event;
 
   return (
-    <EventWrapper>
+    <div>
       <div>
-        <TitleName>{title}</TitleName>
-        <EventText>{description}</EventText>
-        <EventText>{eventDate}</EventText>
-        <EventOrg>{organizer}</EventOrg>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <p>{eventDate}</p>
+        <p>{organizer}</p>
       </div>
-      <EventLinks>
-        <LinkEvent to={`/registration`} state={{ event }}>
+      <div>
+        <Link to={`/registration`} state={{ event }}>
           Register
-        </LinkEvent>
+        </Link>
 
-        <LinkEvent to={`/participants`} state={{ event }}>
+        <Link to={`/participants`} state={{ event }}>
           View
-        </LinkEvent>
-      </EventLinks>
-    </EventWrapper>
+        </Link>
+      </div>
+    </div>
   );
 };
+
+// export const EventCard = ({ event }) => {
+//   const { title, eventDate, description, organizer } = event;
+
+//   return (
+//     <EventWrapper>
+//       <div>
+//         <TitleName>{title}</TitleName>
+//         <EventText>{description}</EventText>
+//         <EventText>{eventDate}</EventText>
+//         <EventOrg>{organizer}</EventOrg>
+//       </div>
+//       <EventLinks>
+//         <LinkEvent to={`/registration`} state={{ event }}>
+//           Register
+//         </LinkEvent>
+
+//         <LinkEvent to={`/participants`} state={{ event }}>
+//           View
+//         </LinkEvent>
+//       </EventLinks>
+//     </EventWrapper>
+//   );
+// };
