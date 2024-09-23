@@ -5,7 +5,7 @@ import {
   EventWrapper,
   LinkEvent,
   TitleName,
-} from "./EventCard.styled";
+} from "./EventCard.styled.js";
 
 export const EventCard = ({ event }) => {
   const { title, eventDate, description, organizer } = event;
