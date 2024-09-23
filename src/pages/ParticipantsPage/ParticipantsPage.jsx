@@ -1,6 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { ParticipantsList } from "../../components/ParticipantsList/ParticipantsList";
-import { Container } from "./ParticipantsPage.styled";
+import {
+  Container,
+  FilterWrapper,
+  PartFilter,
+  PartTitle,
+} from "./ParticipantsPage.styled";
 import { useEffect, useState } from "react";
 import { fetchParticipants } from "../../services/api";
 import { Loader } from "../../components/Loader/Loader";
@@ -53,21 +58,23 @@ const ParticipantsPage = () => {
 
   return (
     <Container>
-      <input
-        type="text"
-        placeholder="Search by full name or email"
-        value={searchQuery}
-        onChange={handleSearchChange}
-      />
+      <PartTitle>{event.title} event participants</PartTitle>
+      <FilterWrapper>
+        <PartFilter
+          type="text"
+          placeholder="Search by full name or email"
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+      </FilterWrapper>
 
       {isLoading && <Loader />}
       {error && <Error />}
       {filteredParticipants.length > 0 ? (
-        <ParticipantsList event={event} participants={filteredParticipants} />
+        <ParticipantsList participants={filteredParticipants} />
       ) : (
-        <p>No participants found.</p>
+        <p>No participants found...</p>
       )}
-      {/* <ParticipantsList participants={participants} /> */}
     </Container>
   );
 };

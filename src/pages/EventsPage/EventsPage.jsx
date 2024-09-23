@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { EventsList } from "../../components/EventsList/EventsList";
-import { Container, SortWrapper } from "./EventsPage.styled";
+import {
+  Container,
+  SortSelect,
+  SortTitle,
+  SortWrapper,
+} from "./EventsPage.styled";
 import { fetchAllEvents } from "../../services/api";
 import { Loader } from "../../components/Loader/Loader";
 import { Error } from "../../components/Error/Error";
@@ -87,13 +92,13 @@ const EventsPage = () => {
   return (
     <Container>
       <SortWrapper>
-        <label htmlFor="sort">Sort by: </label>
-        <select id="sort" value={sortBy} onChange={handleSortChange}>
+        <SortTitle htmlFor="sort">Sort by: </SortTitle>
+        <SortSelect id="sort" value={sortBy} onChange={handleSortChange}>
           <option value="">None</option>
           <option value="title">Title</option>
           <option value="eventDate">Event Date</option>
           <option value="organizer">Organizer</option>
-        </select>
+        </SortSelect>
       </SortWrapper>
 
       {isLoading && <Loader />}
