@@ -29,3 +29,8 @@ export const SortSelect = styled.select`
     border: ${(p) => p.theme.border.blue};
   }
 `;
+
+export const EndText = styled.p`
+  margin-top: 20px;
+  text-align: center;
+`;

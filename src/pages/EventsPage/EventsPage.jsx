@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { EventsList } from "../../components/EventsList/EventsList";
 import {
   Container,
+  EndText,
   SortSelect,
   SortTitle,
   SortWrapper,
@@ -104,7 +105,7 @@ const EventsPage = () => {
       {isLoading && <Loader />}
       {error && <Error />}
       {sortedEvents.length > 0 && <EventsList events={sortedEvents} />}
-      {!hasMore && <p>No more events to load</p>}
+      {!hasMore && <EndText>No more events to load</EndText>}
     </Container>
   );
 };
