@@ -18,7 +18,7 @@ const ParticipantsPage = () => {
   const [participants, setParticipants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // Додаємо стан для пошуку
+  const [searchQuery, setSearchQuery] = useState("");
   const [filteredParticipants, setFilteredParticipants] = useState([]);
 
   useEffect(() => {
